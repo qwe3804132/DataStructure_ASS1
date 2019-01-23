@@ -269,8 +269,8 @@ public class SinglyLinkedList_SelectByNodeIndex<E> implements Cloneable {
 		}
 		if( yprev == x ) {
 
-		    x.setNext( y.getNext());
-		    y.setNext( x );
+		    x.setNext(y.getNext());
+		    y.setNext(x);
 		    xprev.setNext(y);
 		}
 		else if( xprev == y ) {
