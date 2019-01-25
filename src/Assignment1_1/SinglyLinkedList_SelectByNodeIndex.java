@@ -300,6 +300,8 @@ public class SinglyLinkedList_SelectByNodeIndex<E> implements Cloneable {
 		list.addFirst("LAX");
 		System.out.print(list);
 		list.swayNodes(list,list.head.next.next, list.head.next);
+		System.out.print("\nThe Elements and nodes was swaped by the input nodes\n");
+
 		System.out.print(list);
 
 
