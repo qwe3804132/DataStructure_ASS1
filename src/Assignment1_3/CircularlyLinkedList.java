@@ -218,7 +218,8 @@ public class CircularlyLinkedList<E> implements Cloneable {
 //	  System.out.println(circularList);
 //	  circularList.rotate();
 //	  System.out.println(circularList);
-	 
+	  System.out.println("now run the clone and give to new list");
+
 		 CircularlyLinkedList<String> a =circularList.clone();
 		  System.out.println(a);
 

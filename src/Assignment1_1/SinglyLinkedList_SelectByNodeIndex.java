@@ -251,41 +251,41 @@ public class SinglyLinkedList_SelectByNodeIndex<E> implements Cloneable {
 	}
 
 	// main method
-	public void swayNodes(SinglyLinkedList_SelectByNodeIndex<String> list,Node<String> x, Node<String> y) throws Exception {
+	public void swayNodes(SinglyLinkedList_SelectByNodeIndex<String> list,Node<String> node1, Node<String> node2) throws Exception {
 		Node<String> xprev = list.head;
 		Node<String> yprev = list.head;
-		if( x == y ) {
+		if( node1 == node2 ) {
 			System.out.print("they are same index");
 		    return;
 		}
-		while(( xprev != null )&&( xprev.getNext() != x )) {
+		while(( xprev != null )&&( xprev.getNext() != node1 )) {
 		    xprev = xprev.getNext();
 		}
-		while(( yprev != null )&&( yprev.getNext() != y )) {
+		while(( yprev != null )&&( yprev.getNext() != node2 )) {
 		    yprev = yprev.getNext();
 		}
 		if(( xprev == null )||( yprev == null )) {
-		    throw new Exception("nodes not found");
+		    throw new Exception("index nodes not found");
 		}
-		if( yprev == x ) {
+		if( yprev == node1 ) {
 
-		    x.setNext(y.getNext());
-		    y.setNext(x);
-		    xprev.setNext(y);
+		    node2.setNext(node2.getNext());
+		    node2.setNext(node1);
+		    xprev.setNext(node2);
 		}
-		else if( xprev == y ) {
+		else if( xprev == node2 ) {
 
-		    y.setNext( x.getNext());
-		    x.setNext( y );
-		    yprev.setNext( x );
+		    node2.setNext( node1.getNext());
+		    node1.setNext( node2 );
+		    yprev.setNext( node1);
 		}
 		else {
-		    Node tmp = x.getNext();
-		    x.setNext( y.getNext());
-		    y.setNext( tmp );
+		    Node tmp = node1.getNext();
+		    node1.setNext( node2.getNext());
+		    node2.setNext( tmp );
 
-		    xprev.setNext( y );
-		    yprev.setNext( x );
+		    xprev.setNext( node2 );
+		    yprev.setNext( node1 );
 		    }
 
 	}
@@ -300,6 +300,8 @@ public class SinglyLinkedList_SelectByNodeIndex<E> implements Cloneable {
 		list.addFirst("LAX");
 		System.out.print(list);
 		list.swayNodes(list,list.head.next.next, list.head.next);
+		System.out.print("\ninput second node and third node\n");
+
 		System.out.print("\nThe Elements and nodes was swaped by the input nodes\n");
 
 		System.out.print(list);

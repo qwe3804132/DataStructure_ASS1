@@ -249,26 +249,27 @@ public class SinglyLinkedList_SelectByValue<E> implements Cloneable {
 	}
 	// main method
 
-	public void swapNodes(E key1, E key2) {
-		if (head == null) {
-			System.out.println("list is empty");
-			return;
-		}
+	public void swapNodes(E element1, E element2) {
+		
 		Node<E> previousNodeOfKey1 = null;
 		Node<E> previousNodeOfKey2 = null;
 		Node<E> currentNodeOfKey1 = head;
 		Node<E> currentNodeOfKey2 = head;
+		if (head == null) {
+			System.out.println("list is empty");
+			return;
+		}
 
-		while (currentNodeOfKey1.next != null && currentNodeOfKey1.getElement() != key1) {
+		while (currentNodeOfKey1.next != null && currentNodeOfKey1.getElement() != element1) {
 			previousNodeOfKey1 = currentNodeOfKey1;
 			currentNodeOfKey1 = currentNodeOfKey1.next;
 		}
 
-		while (currentNodeOfKey2.next != null && currentNodeOfKey2.getElement() != key2) {
+		while (currentNodeOfKey2.next != null && currentNodeOfKey2.getElement() != element2) {
 			previousNodeOfKey2 = currentNodeOfKey2;
 			currentNodeOfKey2 = currentNodeOfKey2.next;
 		}
-		if (currentNodeOfKey1.getElement() != key1 || currentNodeOfKey2.getElement() != key2) {
+		if (currentNodeOfKey1.getElement() != element1 || currentNodeOfKey2.getElement() != element2) {
 			System.out.println("Key1 or Key2 not found in the list");
 			return;
 		}
@@ -300,7 +301,6 @@ public class SinglyLinkedList_SelectByValue<E> implements Cloneable {
 		list.swapNodes("LAX", "ATL");
 		System.out.println(list);
 		System.out.println("The value and Node all changed");
-
 
 		//
 	}

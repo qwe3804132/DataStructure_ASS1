@@ -267,7 +267,6 @@ public class DoublyLinkedList<E> {
 		list1.trailer.getPrev().setNext(list2.header.getNext());
 		list2.header.getNext().setPrev( list1.trailer.getPrev());
 	    list1.trailer = list2.trailer;
-	    list1.size = list1.size + list2.size;
         return list1;
 				  
 							}
@@ -292,7 +291,6 @@ public class DoublyLinkedList<E> {
 		System.out.println("The result after connect two doublylinked list");
 		DoublyLinkedList<String> L = list.conact(list, list2);
 		System.out.println(L);
-		System.out.println("The size for new DoublyLinkelist is:"+L.size);
 
 
 
