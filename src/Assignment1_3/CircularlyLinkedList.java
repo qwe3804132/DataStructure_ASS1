@@ -30,7 +30,7 @@ package Assignment1_3;
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
-public class CircularlyLinkedList<E> {
+public class CircularlyLinkedList<E> implements Cloneable {
   //---------------- nested Node class ----------------
   /**
    * Singly linked node, which stores a reference to its element and
@@ -181,15 +181,29 @@ public class CircularlyLinkedList<E> {
     return sb.toString();
   }
   
+	@SuppressWarnings({ "unchecked" })
   public CircularlyLinkedList<E> clone() throws CloneNotSupportedException{
 	    CircularlyLinkedList<E> other = (CircularlyLinkedList<E>) super.clone(); // safe cast
        if(size>0) {
-    	   
-       }
+    	   other.tail=new Node<>(tail.getElement(),null);//targetr,setting tail for target
+    	  // Node<E> startpoint=tail;//the real one, save the tail now on real one
+
+    	   Node<E> walk = tail.getNext();//get next point from real one
+    	   Node<E> otherTail = other.tail; // remember
+    	   Node<E> head = other.tail;
+    	   while(walk!=tail) {
+				Node<E> newest = new Node<E>(walk.getElement(), head);
+				otherTail.setNext(newest);
+				otherTail = newest;
+				walk = walk.getNext();
+    	   }
+
+       }           return other;
+
   }
   
 //main method
-  public static void main(String[] args)
+  public static void main(String[] args) throws CloneNotSupportedException
   {
 	  
 	  //(LAX, MSP, ATL, BOS)
@@ -200,11 +214,15 @@ public class CircularlyLinkedList<E> {
 	  circularList.addLast("BOS");
 	  //
 	  System.out.println(circularList);
-	  circularList.removeFirst();
-	  System.out.println(circularList);
-	  circularList.rotate();
-	  System.out.println(circularList);
+//	  circularList.removeFirst();
+//	  System.out.println(circularList);
+//	  circularList.rotate();
+//	  System.out.println(circularList);
+	 
+		 CircularlyLinkedList<String> a =circularList.clone();
+		  System.out.println(a);
 
+	
 	  //
   }
 }
